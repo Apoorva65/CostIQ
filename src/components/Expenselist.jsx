@@ -1,10 +1,16 @@
 import React from "react";
+import Expenseitem from "./Expenseitem";
 
-function Expenselist(){
+function Expenselist({expenses}){
+    if(expenses.length===0){
+        return(<p>No expenses added!</p>)
+    }
     return(
-        <div>
-            <h1>CostIQ Expense List</h1>
-        </div>
+            <ul>
+                {expenses.map((exp)=>(
+                    <Expenseitem key = {exp.id} expense={exp} />
+                ))}
+            </ul>
     )
 
 }

@@ -1,14 +1,33 @@
 import React,{useState} from "react";
 
-function Expenseform(){
+function Expenseform({onAddexpense}){
 
     const [title,setTitle] = useState("");
-    const [amount,setAmount] = useState();
-    const [categoty,setCategory] = useState("Food");
+    const [amount,setAmount] = useState("");
+    const [category,setCategory] = useState("Food");
     const [date,setDate] = useState("");
 
     const submitHandler = (e) =>{
         e.preventDefault();
+
+        if(!title || !amount || !date){
+            return;
+        }
+
+        const expenseData = {
+            id : crypto.randomUUID(),
+            title : title,
+            amount : Number(amount),
+            category : category,
+            date : date
+        };
+
+        onAddexpense(expenseData);
+
+        setTitle('');
+        setAmount('');
+        setCategory('Food');
+        setDate('');
     }
 
     return(
@@ -33,7 +52,7 @@ function Expenseform(){
 
                 <label>Category: </label>
                 <select
-                value={categoty}
+                value={category}
                 onChange={(e)=>setCategory(e.target.value)}
                 >
                     <option value="Food">Food</option>

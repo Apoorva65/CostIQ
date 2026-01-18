@@ -1,10 +1,13 @@
 import React from "react";
 
-function Expenseitem(){
+function Expenseitem({expense}){
     return(
-        <div>
-            <h1>CostIQ Expense Item</h1>
-        </div>
+            <li>
+                <span>{expense.title}</span>{" "}
+                <span>{expense.amount}</span>{" "}
+                <span>{expense.category}</span>{" "}
+                <span>{expense.date}</span>{" "}
+            </li>
     )
 
 }
