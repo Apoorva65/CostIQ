@@ -1,11 +1,18 @@
-import React, { useState} from "react";
+import React, { useState,useEffect} from "react";
 import Expenseform from "../components/Expenseform";
 import Expenselist from "../components/Expenselist";
 import Summary from "../components/Summary";
 
 function Dashboard(){
 
-    const [expenses,setExpenses] = useState([]);
+    const [expenses,setExpenses] = useState(()=>{
+        const storedExpenses = localStorage.getItem("expenses");
+        return storedExpenses?JSON.parse(storedExpenses):[];
+    }); //LAZY INITIALIZER
+
+    useEffect(()=>{
+        localStorage.setItem("expenses",JSON.stringify(expenses))
+    },[expenses])
 
     const addExpense = (expense) => {
         setExpenses((prevexpenses)=>([expense,...prevexpenses])); 
