@@ -11,4 +11,4 @@ CostIQ is a React-based personal finance management application that helps users
 
 ## Status
 
-🚧 In active development
+In active development
