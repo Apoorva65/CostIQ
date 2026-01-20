@@ -1,6 +1,15 @@
-import React,{useState} from "react";
+import React,{useState,useEffect} from "react";
 
-function Expenseform({onAddexpense}){
+function Expenseform({onAddexpense,editingExpense,updateExpense}){
+
+    useEffect(()=>{
+        if(editingExpense){
+            setTitle(editingExpense.title);
+            setAmount(editingExpense.amount);
+            setCategory(editingExpense.category);
+            setDate(editingExpense.date);
+        }
+    },[editingExpense])
 
     const [title,setTitle] = useState("");
     const [amount,setAmount] = useState("");
@@ -22,7 +31,18 @@ function Expenseform({onAddexpense}){
             date : date
         };
 
-        onAddexpense(expenseData);
+        if(editingExpense){
+            updateExpense({
+                ...editingExpense,
+                title,
+                amount : Number(amount),
+                category,
+                date
+            })
+        }
+        else{
+            onAddexpense(expenseData);
+        }
 
         setTitle('');
         setAmount('');

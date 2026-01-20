@@ -1,6 +1,6 @@
 import React from "react";
 
-function Expenseitem({expense,OnDelete}){
+function Expenseitem({expense,OnDelete,OnEdit}){
     return(
             <li>
                 <span>{expense.title}</span>{" "}
@@ -10,6 +10,9 @@ function Expenseitem({expense,OnDelete}){
                 <button
                 onClick={()=>OnDelete(expense.id)}
                 >Delete</button>
+                <button
+                onClick={()=>OnEdit(expense)}
+                >Edit</button>
             </li>
     )
 

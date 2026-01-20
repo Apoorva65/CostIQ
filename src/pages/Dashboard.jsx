@@ -1,9 +1,11 @@
-import React, { useState,useEffect} from "react";
+import React, { useState,useEffect, use} from "react";
 import Expenseform from "../components/Expenseform";
 import Expenselist from "../components/Expenselist";
 import Summary from "../components/Summary";
 
 function Dashboard(){
+
+    const [editingExpense,setEditingExpense] = useState(null);
 
     const [expenses,setExpenses] = useState(()=>{
         const storedExpenses = localStorage.getItem("expenses");
@@ -22,12 +24,23 @@ function Dashboard(){
         setExpenses((prevexpenses)=>prevexpenses.filter((exp)=>exp.id!==id));
     }
 
+    const startEditExpense = (expense) =>{
+        setEditingExpense(expense);
+    }
+
+    const updateExpense = (updateExpense) => {
+        setExpenses((prevexpenses)=>(
+            prevexpenses.map((exp)=>exp.id===updateExpense.id?updateExpense:exp)
+        ));
+        setEditingExpense(null);
+    }
+
     return(
         <div>
             <h1>CostIQ Dashboard</h1>
-            <Expenseform onAddexpense={addExpense}/>
+            <Expenseform onAddexpense={addExpense} editingExpense={editingExpense} updateExpense={updateExpense}/>
             <Summary expenses={expenses} />
-            <Expenselist expenses={expenses} OndeleteExpense={deleteExpense}/>
+            <Expenselist expenses={expenses} OndeleteExpense={deleteExpense} OnEditExpense={startEditExpense}/>
         </div>
     )
 
