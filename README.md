@@ -1,14 +1,49 @@
 # CostIQ
 
-CostIQ is a React-based personal finance management application that helps users track, categorize, and analyze their expenses efficiently.
+CostIQ is a simple and intuitive expense management web application built with React.
+It allows users to track daily expenses, categorize them, view summaries, and manage data with full CRUD functionality.
+
+## Functionality
+
+- Add expenses with title, amount, category, and date
+
+- Edit existing expenses
+
+- Delete expenses
+
+- Filter expenses by category
+
+- View total spending summary
+
+- Persistent storage using localStorage
 
 ## Tech Stack
 
-- React
-- Vite
-- JavaScript
-- CSS
+- React (Vite setup)
 
-## Status
+- JavaScript (ES6+)
 
-In active development
+- CSS (Plain CSS, responsive layout)
+
+- localStorage for persistence
+
+## Project Structure
+
+```css
+Project Structure
+src/
+├── components/
+│   ├── ExpenseForm.jsx
+│   ├── ExpenseList.jsx
+│   ├── ExpenseItem.jsx
+│   ├── CategoryFilter.jsx
+│   └── Summary.jsx
+├── pages/
+│   └── Dashboard.jsx
+├── constants/
+│   └── categories.js
+├── utils/
+│   └── storage.js
+├── index.css
+└── main.jsx
+```
