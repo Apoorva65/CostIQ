@@ -40,10 +40,6 @@ src/
 │   └── Summary.jsx
 ├── pages/
 │   └── Dashboard.jsx
-├── constants/
-│   └── categories.js
-├── utils/
-│   └── storage.js
 ├── index.css
 └── main.jsx
 ```
