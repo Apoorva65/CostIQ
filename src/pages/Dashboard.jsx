@@ -2,10 +2,9 @@ import React, { useState,useEffect, use} from "react";
 import Expenseform from "../components/Expenseform";
 import Expenselist from "../components/Expenselist";
 import Summary from "../components/Summary";
+import CategoryFilter from "../components/CategoryFilter";
 
 function Dashboard(){
-
-    const [editingExpense,setEditingExpense] = useState(null);
 
     const [expenses,setExpenses] = useState(()=>{
         const storedExpenses = localStorage.getItem("expenses");
@@ -15,6 +14,12 @@ function Dashboard(){
     useEffect(()=>{
         localStorage.setItem("expenses",JSON.stringify(expenses))
     },[expenses])
+
+    const [editingExpense,setEditingExpense] = useState(null);
+
+    const [selectedCategory, setSelectedCategory] = useState("All");
+
+    const filterdExpenses = selectedCategory==="All"?expenses:expenses.filter((exp)=>exp.category===selectedCategory);
 
     const addExpense = (expense) => {
         setExpenses((prevexpenses)=>([expense,...prevexpenses])); 
@@ -39,7 +44,8 @@ function Dashboard(){
         <div className="app-container">
             <h1>CostIQ Dashboard</h1>
             <Expenseform onAddexpense={addExpense} editingExpense={editingExpense} updateExpense={updateExpense}/>
-            <Summary expenses={expenses} />
+            <Summary expenses={filterdExpenses} />
+            <CategoryFilter selectedCategory={selectedCategory} changedCategory={setSelectedCategory}/>
             <Expenselist expenses={expenses} OndeleteExpense={deleteExpense} OnEditExpense={startEditExpense}/>
         </div>
     )
