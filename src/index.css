@@ -100,6 +100,13 @@ h1 {
   color: white;
 }
 
+.actions button:disabled {
+  background-color: #d1d5db;
+  color: #6b7280;
+  cursor: not-allowed;
+}
+
+
 @media (max-width: 480px) {
   .expense-item {
     flex-direction: column;
