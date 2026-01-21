@@ -9,7 +9,7 @@ function Dashboard(){
     const [expenses,setExpenses] = useState(()=>{
         const storedExpenses = localStorage.getItem("expenses");
         return storedExpenses?JSON.parse(storedExpenses):[];
-    }); //LAZY INITIALIZER
+    });
 
     useEffect(()=>{
         localStorage.setItem("expenses",JSON.stringify(expenses))
