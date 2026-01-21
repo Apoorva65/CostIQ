@@ -36,7 +36,7 @@ function Dashboard(){
     }
 
     return(
-        <div>
+        <div className="app-container">
             <h1>CostIQ Dashboard</h1>
             <Expenseform onAddexpense={addExpense} editingExpense={editingExpense} updateExpense={updateExpense}/>
             <Summary expenses={expenses} />

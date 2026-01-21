@@ -6,7 +6,7 @@ function Expenselist({expenses,OndeleteExpense,OnEditExpense}){
         return(<p>No expenses added!</p>)
     }
     return(
-            <ul>
+            <ul className="card list">
                 {expenses.map((exp)=>(
                     <Expenseitem key = {exp.id} expense={exp} OnDelete={OndeleteExpense} OnEdit={OnEditExpense}/>
                 ))}

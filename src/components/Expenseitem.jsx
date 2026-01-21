@@ -2,17 +2,19 @@ import React from "react";
 
 function Expenseitem({expense,OnDelete,OnEdit}){
     return(
-            <li>
+            <li className="expense-item">
                 <span>{expense.title}</span>{" "}
                 <span>{expense.amount}</span>{" "}
                 <span>{expense.category}</span>{" "}
                 <span>{expense.date}</span>{" "}
-                <button
-                onClick={()=>OnDelete(expense.id)}
-                >Delete</button>
-                <button
-                onClick={()=>OnEdit(expense)}
-                >Edit</button>
+                <div className="actions">
+                    <button
+                    onClick={()=>OnDelete(expense.id)}
+                    >Delete</button>
+                    <button
+                    onClick={()=>OnEdit(expense)}
+                    >Edit</button>
+                </div>
             </li>
     )
 

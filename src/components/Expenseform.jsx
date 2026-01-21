@@ -52,7 +52,7 @@ function Expenseform({onAddexpense,editingExpense,updateExpense}){
 
     return(
         <div>
-            <form onSubmit={submitHandler}>
+            <form className="card form" onSubmit={submitHandler}>
                 <h2>Add expense</h2>
                 <label>Title: </label>
                 <input 
@@ -90,7 +90,7 @@ function Expenseform({onAddexpense,editingExpense,updateExpense}){
                 onChange={(e)=>setDate(e.target.value)}
                 />
 
-                <button type="submit">Add expense</button>
+                <button type="submit">{editingExpense ? "Update Expense" : "Add Expense"}</button>
             </form>
         </div>
     )
