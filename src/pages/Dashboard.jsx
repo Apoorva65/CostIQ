@@ -46,7 +46,7 @@ function Dashboard(){
             <Expenseform onAddexpense={addExpense} editingExpense={editingExpense} updateExpense={updateExpense}/>
             <Summary expenses={filterdExpenses} />
             <CategoryFilter selectedCategory={selectedCategory} changedCategory={setSelectedCategory}/>
-            <Expenselist expenses={expenses} OndeleteExpense={deleteExpense} OnEditExpense={startEditExpense} editingId={editingExpense?editingExpense.id:null} />
+            <Expenselist expenses={filterdExpenses} OndeleteExpense={deleteExpense} OnEditExpense={startEditExpense} editingId={editingExpense?editingExpense.id:null} />
         </div>
     )
 
