@@ -1,6 +1,6 @@
 # CostIQ
 
-CostIQ is a simple and intuitive expense management web application built with React.
+CostIQ is a simple expense management web application built with React.
 It allows users to track daily expenses, categorize them, view summaries, and manage data with full CRUD functionality.
 
 ## Functionality
@@ -29,7 +29,7 @@ It allows users to track daily expenses, categorize them, view summaries, and ma
 
 ## Project Structure
 
-```css
+```text
 Project Structure
 src/
 ├── components/
