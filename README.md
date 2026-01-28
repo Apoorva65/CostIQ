@@ -27,7 +27,7 @@ It allows users to track daily expenses, categorize them, view summaries, and ma
 
 - localStorage for persistence
 
-## Project Structure
+<!-- ## Project Structure
 
 ```text
 Project Structure
@@ -42,4 +42,4 @@ src/
 │   └── Dashboard.jsx
 ├── index.css
 └── main.jsx
-```
+``` -->
